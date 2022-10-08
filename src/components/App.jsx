@@ -3,12 +3,19 @@ import { CssBaseline } from '@mui/material';
 import { Route, Switch } from 'react-router-dom';
 import { Actors, MovieInformation, Movie, NavBar, Profile } from '.';
 
-function App() {
+import useStyles from './styles';
+
+// eslint-disable-next-line react/function-component-definition
+const App = () => {
+  const classes = useStyles();
+
   return (
-    <div>
+    <div className={classes.root}>
       <CssBaseline />
       <NavBar />
-      <main>
+      <main className={classes.content}>
+        <div className={classes.toolbar} />
+        <div />
         <Switch>
           <Route exact path="/movie/:id">
             <MovieInformation />
@@ -26,6 +33,6 @@ function App() {
       </main>
     </div>
   );
-}
+};
 
 export default App;
